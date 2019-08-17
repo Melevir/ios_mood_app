@@ -10,6 +10,7 @@
 		1636B4B8230724C100245A5F /* MoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636B4B7230724C100245A5F /* MoodListViewController.swift */; };
 		1636B4BA230733CA00245A5F /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636B4B9230733CA00245A5F /* NSDateExtension.swift */; };
 		1636B4BC2307357400245A5F /* MoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636B4BB2307357400245A5F /* MoodPresenter.swift */; };
+		1636B4C42307E4D300245A5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636B4C32307E4D300245A5F /* Constants.swift */; };
 		165E556D2300249500DB855A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E556C2300249500DB855A /* AppDelegate.swift */; };
 		165E556F2300249500DB855A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E556E2300249500DB855A /* ViewController.swift */; };
 		165E55722300249500DB855A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E55702300249500DB855A /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		1636B4B7230724C100245A5F /* MoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodListViewController.swift; sourceTree = "<group>"; };
 		1636B4B9230733CA00245A5F /* NSDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		1636B4BB2307357400245A5F /* MoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPresenter.swift; sourceTree = "<group>"; };
+		1636B4C32307E4D300245A5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		165E55692300249500DB855A /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		165E556C2300249500DB855A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		165E556E2300249500DB855A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				165E55732300249700DB855A /* Assets.xcassets */,
 				165E55752300249700DB855A /* LaunchScreen.storyboard */,
 				165E55782300249700DB855A /* Info.plist */,
+				1636B4C32307E4D300245A5F /* Constants.swift */,
 			);
 			path = MoodTracker;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				1636B4BA230733CA00245A5F /* NSDateExtension.swift in Sources */,
 				1636B4B8230724C100245A5F /* MoodListViewController.swift in Sources */,
 				1636B4BC2307357400245A5F /* MoodPresenter.swift in Sources */,
+				1636B4C42307E4D300245A5F /* Constants.swift in Sources */,
 				165E556D2300249500DB855A /* AppDelegate.swift in Sources */,
 				165E559B230024F400DB855A /* MoodSelectorView.swift in Sources */,
 			);

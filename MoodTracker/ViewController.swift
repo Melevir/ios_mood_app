@@ -25,12 +25,24 @@ class ViewController: UIViewController {
         swipeUp.direction = .up
         self.view.addGestureRecognizer(swipeUp)
 
+        moodLabel.adjustsFontSizeToFitWidth = true
+
         updateMoodWith(index: currentColorIndex)
     }
 
     @IBAction func saveButtonClick(_ sender: UIButton) {
         let now = Date()
-        print("Saving \(currentColorIndex) at \(now)")
+        let newMoodRecord: [String: Any] = ["mood": currentColorIndex, "at": now]
+
+        let defaults = UserDefaults.standard
+
+        var moodStatistics = defaults.array(forKey: Constants.moodStatisticsStorageKey)
+        if moodStatistics == nil {
+            moodStatistics = [newMoodRecord]
+        } else {
+            moodStatistics?.append(newMoodRecord)
+        }
+        defaults.set(moodStatistics, forKey: Constants.moodStatisticsStorageKey)
     }
 
     @objc private func swipeDownAction(_ sender: UIGestureRecognizer) {

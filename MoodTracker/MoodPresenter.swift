@@ -11,20 +11,24 @@ import UIKit
 
 class MoodPresenter {
     private static let moodColors = [
-        (UIColor(red: 255/255, green: 51/255, blue: 51/255, alpha: 1), "Великолепно"),
-        (UIColor(red: 255/255, green: 153/255, blue: 51/255, alpha: 1), "Прекрасно"),
-        (UIColor(red: 255/255, green: 255/255, blue: 51/255, alpha: 1), "Отлично"),
-        (UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1), "Хорошо"),
-        (UIColor(red: 0/255, green: 255/255, blue: 255/255, alpha: 1), "Нормально"),
-        (UIColor(red: 0/255, green: 128/255, blue: 255/255, alpha: 1), "Так себе"),
-        (UIColor(red: 127/255, green: 0/255, blue: 255/255, alpha: 1), "Плохо"),
-        (UIColor(red: 255/255, green: 0/255, blue: 255/255, alpha: 1), "Хуёво"),
-        (UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1), "Пиздец")
+        (255, 51, 51, "Великолепно"),
+        (255, 153, 51, "Прекрасно"),
+        (255, 255, 51, "Отлично"),
+        (0, 255, 0, "Хорошо"),
+        (0, 255, 255, "Нормально"),
+        (0, 128, 255, "Так себе"),
+        (127, 0, 255, "Плохо"),
+        (255, 0, 255, "Хуёво"),
+        (128, 128, 128, "Пиздец")
     ]
 
     public static func getMoodInfo(moodIndex: Int) -> (UIColor, String)? {
         if moodColors.indices.contains(moodIndex) {
-            return moodColors[moodIndex]
+            let (red, green, blue, moodText) = moodColors[moodIndex]
+            return (
+                UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1),
+                moodText
+            )
         }
         return nil
     }
