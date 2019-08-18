@@ -11,7 +11,6 @@ import UIKit
 class MoodSelectorViewController: UIViewController {
     private var currentColorIndex = 4
 
-    @IBOutlet private weak var moodSelector: MoodSelectorView!
     @IBOutlet private weak var moodLabel: UILabel!
 
     override func viewDidLoad() {
@@ -61,7 +60,7 @@ class MoodSelectorViewController: UIViewController {
             return
         }
         let (color, moodText) = moodInfo
-        moodSelector.redrawWith(color: color)
+        self.view.backgroundColor = color
         moodLabel.text = moodText
         currentColorIndex = index
     }
