@@ -23,6 +23,7 @@ enum MoodService {
     ]
 
     public static func getMoodInfo(moodIndex: Int) -> (UIColor, String)? {
+        let moodIndex = moodIndex % moodColors.count
         if moodColors.indices.contains(moodIndex) {
             let (red, green, blue, moodText) = moodColors[moodIndex]
             return (

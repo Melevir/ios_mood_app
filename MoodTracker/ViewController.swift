@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MoodSelectorViewController: UIViewController {
     private var currentColorIndex = 4
 
     @IBOutlet private weak var moodSelector: MoodSelectorView!
