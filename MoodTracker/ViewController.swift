@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     private var currentColorIndex = 4
 
-    @IBOutlet weak var moodSelector: MoodSelectorView!
-    @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet private weak var moodSelector: MoodSelectorView!
+    @IBOutlet private weak var moodLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         updateMoodWith(index: currentColorIndex)
     }
 
-    @IBAction func saveButtonClick(_ sender: UIButton) {
+    @IBAction private func saveButtonClick(_ sender: UIButton) {
         let now = Date()
         let newMoodRecord: [String: Any] = ["mood": currentColorIndex, "at": now]
 
@@ -46,13 +46,16 @@ class ViewController: UIViewController {
         defaults.set(moodStatistics, forKey: Constants.moodStatisticsStorageKey)
     }
 
-    @objc private func swipeDownAction(_ sender: UIGestureRecognizer) {
+    @objc
+     private func swipeDownAction(_ sender: UIGestureRecognizer) {
         updateMoodWith(index: currentColorIndex + 1)
     }
 
-    @objc private func swipeUpAction(_ sender: UIGestureRecognizer) {
+    @objc
+     private func swipeUpAction(_ sender: UIGestureRecognizer) {
         updateMoodWith(index: currentColorIndex - 1)
     }
+
     private func updateMoodWith(index: Int) {
         guard let moodInfo = MoodService.getMoodInfo(moodIndex: index) else {
             return
