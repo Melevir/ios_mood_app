@@ -6,6 +6,10 @@ extension NSDate {
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        self.init(timeInterval: 0, since: dateStringFormatter.date(from: dateString)!)
+        if let date = dateStringFormatter.date(from: dateString) {
+            self.init(timeInterval: 0, since: date)
+        } else {
+            self.init()
+        }
     }
 }

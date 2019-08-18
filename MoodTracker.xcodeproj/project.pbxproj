@@ -16,7 +16,6 @@
 		165E55722300249500DB855A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E55702300249500DB855A /* Main.storyboard */; };
 		165E55742300249700DB855A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165E55732300249700DB855A /* Assets.xcassets */; };
 		165E55772300249700DB855A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E55752300249700DB855A /* LaunchScreen.storyboard */; };
-		165E559B230024F400DB855A /* MoodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E559A230024F400DB855A /* MoodSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		165E55782300249700DB855A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		165E557D2300249700DB855A /* MoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		165E55882300249700DB855A /* MoodTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		165E559A230024F400DB855A /* MoodSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectorView.swift; sourceTree = "<group>"; };
 		361E1C7E4C1F0B5EB6869B75 /* Pods-MoodTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodTracker.debug.xcconfig"; path = "Target Support Files/Pods-MoodTracker/Pods-MoodTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1597B40ED3AA30EE300356 /* Pods-MoodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodTracker.release.xcconfig"; path = "Target Support Files/Pods-MoodTracker/Pods-MoodTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,20 +95,12 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		1636B4C123073E9C00245A5F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				165E559A230024F400DB855A /* MoodSelectorView.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		1636B4C223073EC100245A5F /* Presenters */ = {
+		1636B4C223073EC100245A5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				1636B4BB2307357400245A5F /* MoodPresenter.swift */,
 			);
-			name = Presenters;
+			name = Services;
 			sourceTree = "<group>";
 		};
 		165E55602300249500DB855A = {
@@ -136,10 +126,9 @@
 		165E556B2300249500DB855A /* MoodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				1636B4C123073E9C00245A5F /* Views */,
 				1636B4BF23073E6F00245A5F /* Controllers */,
 				1636B4C023073E8C00245A5F /* Extensions */,
-				1636B4C223073EC100245A5F /* Presenters */,
+				1636B4C223073EC100245A5F /* Services */,
 				165E556C2300249500DB855A /* AppDelegate.swift */,
 				165E55702300249500DB855A /* Main.storyboard */,
 				165E55732300249700DB855A /* Assets.xcassets */,
@@ -348,7 +337,6 @@
 				1636B4BC2307357400245A5F /* MoodPresenter.swift in Sources */,
 				1636B4C42307E4D300245A5F /* Constants.swift in Sources */,
 				165E556D2300249500DB855A /* AppDelegate.swift in Sources */,
-				165E559B230024F400DB855A /* MoodSelectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QJMJ28WT98;
 				INFOPLIST_FILE = MoodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,6 +533,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QJMJ28WT98;
 				INFOPLIST_FILE = MoodTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

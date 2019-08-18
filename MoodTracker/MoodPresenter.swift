@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MoodPresenter {
+enum MoodService {
     private static let moodColors = [
         (255, 51, 51, "Великолепно"),
         (255, 153, 51, "Прекрасно"),
@@ -23,10 +23,11 @@ class MoodPresenter {
     ]
 
     public static func getMoodInfo(moodIndex: Int) -> (UIColor, String)? {
+        let moodIndex = moodIndex % moodColors.count
         if moodColors.indices.contains(moodIndex) {
             let (red, green, blue, moodText) = moodColors[moodIndex]
             return (
-                UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1),
+                UIColor(red: CGFloat(red / 255), green: CGFloat(green / 255), blue: CGFloat(blue / 255), alpha: 1),
                 moodText
             )
         }

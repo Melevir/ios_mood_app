@@ -9,7 +9,7 @@
 import UIKit
 
 class MoodListViewController: UIViewController, UITableViewDataSource {
-    @IBOutlet weak var moodList: UITableView!
+    @IBOutlet private weak var moodList: UITableView!
 
     private var moodHistoryData: [[String: Any]] {
         let moodStatistics = UserDefaults.standard.array(forKey: Constants.moodStatisticsStorageKey) as? [[String: Any]]
@@ -27,17 +27,19 @@ class MoodListViewController: UIViewController, UITableViewDataSource {
             let moodMeasurement = moodHistoryData[indexPath.row]
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = Constants.moodListDateFormat
-            dateFormatter.locale = Locale.init(identifier: "ru_RU")
+            dateFormatter.locale = Locale(identifier: "ru_RU")
 
             if
                 let moodIndex = moodMeasurement["mood"] as? Int,
-                let moodInfo = MoodPresenter.getMoodInfo(moodIndex: moodIndex),
+                let moodInfo = MoodService.getMoodInfo(moodIndex: moodIndex),
                 let moodDate = moodMeasurement["at"] as? Date
             {
 
                 let (color, moodText) = moodInfo
                 cell.backgroundColor = color
-                cell.textLabel!.text = "\(moodText) (\(dateFormatter.string(from: moodDate)))"
+                if let textLabel = cell.textLabel {
+                    textLabel.text = "\(moodText) (\(dateFormatter.string(from: moodDate)))"
+                }
             }
 
         }

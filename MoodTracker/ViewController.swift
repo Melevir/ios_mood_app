@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MoodSelectorViewController: UIViewController {
     private var currentColorIndex = 4
 
-    @IBOutlet weak var moodSelector: MoodSelectorView!
-    @IBOutlet weak var moodLabel: UILabel!
+    @IBOutlet private weak var moodLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector(("swipeDownAction:")))
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction(_:)))
+
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
 
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: Selector(("swipeUpAction:")))
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUpAction(_:)))
         swipeUp.direction = .up
         self.view.addGestureRecognizer(swipeUp)
 
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         updateMoodWith(index: currentColorIndex)
     }
 
-    @IBAction func saveButtonClick(_ sender: UIButton) {
+    @IBAction private func saveButtonClick(_ sender: UIButton) {
         let now = Date()
         let newMoodRecord: [String: Any] = ["mood": currentColorIndex, "at": now]
 
@@ -45,19 +45,23 @@ class ViewController: UIViewController {
         defaults.set(moodStatistics, forKey: Constants.moodStatisticsStorageKey)
     }
 
-    @objc private func swipeDownAction(_ sender: UIGestureRecognizer) {
+    @objc
+     private func swipeDownAction(_ sender: UIGestureRecognizer) {
         updateMoodWith(index: currentColorIndex + 1)
     }
 
-    @objc private func swipeUpAction(_ sender: UIGestureRecognizer) {
+    @objc
+     private func swipeUpAction(_ sender: UIGestureRecognizer) {
         updateMoodWith(index: currentColorIndex - 1)
     }
+
     private func updateMoodWith(index: Int) {
-        if let moodInfo = MoodPresenter.getMoodInfo(moodIndex: index) {
-            let (color, moodText) = moodInfo
-            moodSelector.redrawWith(color: color)
-            moodLabel.text = moodText
-            currentColorIndex = index
+        guard let moodInfo = MoodService.getMoodInfo(moodIndex: index) else {
+            return
         }
+        let (color, moodText) = moodInfo
+        self.view.backgroundColor = color
+        moodLabel.text = moodText
+        currentColorIndex = index
     }
 }
