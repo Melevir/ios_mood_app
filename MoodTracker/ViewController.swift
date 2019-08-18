@@ -17,11 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector(("swipeDownAction:")))
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDownAction(_:)))
+
         swipeDown.direction = .down
         self.view.addGestureRecognizer(swipeDown)
 
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: Selector(("swipeUpAction:")))
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeUpAction(_:)))
         swipeUp.direction = .up
         self.view.addGestureRecognizer(swipeUp)
 
@@ -53,11 +54,12 @@ class ViewController: UIViewController {
         updateMoodWith(index: currentColorIndex - 1)
     }
     private func updateMoodWith(index: Int) {
-        if let moodInfo = MoodPresenter.getMoodInfo(moodIndex: index) {
-            let (color, moodText) = moodInfo
-            moodSelector.redrawWith(color: color)
-            moodLabel.text = moodText
-            currentColorIndex = index
+        guard let moodInfo = MoodService.getMoodInfo(moodIndex: index) else {
+            return
         }
+        let (color, moodText) = moodInfo
+        moodSelector.redrawWith(color: color)
+        moodLabel.text = moodText
+        currentColorIndex = index
     }
 }

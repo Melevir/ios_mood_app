@@ -105,12 +105,12 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		1636B4C223073EC100245A5F /* Presenters */ = {
+		1636B4C223073EC100245A5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				1636B4BB2307357400245A5F /* MoodPresenter.swift */,
 			);
-			name = Presenters;
+			name = Services;
 			sourceTree = "<group>";
 		};
 		165E55602300249500DB855A = {
@@ -139,7 +139,7 @@
 				1636B4C123073E9C00245A5F /* Views */,
 				1636B4BF23073E6F00245A5F /* Controllers */,
 				1636B4C023073E8C00245A5F /* Extensions */,
-				1636B4C223073EC100245A5F /* Presenters */,
+				1636B4C223073EC100245A5F /* Services */,
 				165E556C2300249500DB855A /* AppDelegate.swift */,
 				165E55702300249500DB855A /* Main.storyboard */,
 				165E55732300249700DB855A /* Assets.xcassets */,

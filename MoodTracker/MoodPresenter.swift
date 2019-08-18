@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MoodPresenter {
+class MoodService {
     private static let moodColors = [
         (255, 51, 51, "Великолепно"),
         (255, 153, 51, "Прекрасно"),

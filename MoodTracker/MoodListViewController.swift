@@ -31,7 +31,7 @@ class MoodListViewController: UIViewController, UITableViewDataSource {
 
             if
                 let moodIndex = moodMeasurement["mood"] as? Int,
-                let moodInfo = MoodPresenter.getMoodInfo(moodIndex: moodIndex),
+                let moodInfo = MoodService.getMoodInfo(moodIndex: moodIndex),
                 let moodDate = moodMeasurement["at"] as? Date
             {
 
